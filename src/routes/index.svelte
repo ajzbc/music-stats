@@ -48,7 +48,7 @@
 
 <header class="w-full bg-black p-4">
 	<div class="max-w-4xl mx-auto">
-		<div class="flex justify-between items-center mb-3">
+		<div class="mb-3 flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
 			<a href=".">
 				<h1 class="text-3xl font-medium">Spotify Stats</h1>
 			</a>
@@ -67,14 +67,16 @@
 </header>
 
 <header class="w-full bg-black p-4 sticky top-0 shadow-2xl">
-	<div class="flex justify-between max-w-4xl mx-auto">
+	<div class="max-w-4xl mx-auto flex flex-col justify-between sm:flex-row">
 		<Tabs tabs={types} bind:active={type} />
 		<Tabs tabs={time_periods} bind:active={time_period} />
 	</div>
 </header>
 
-<div class="flex flex-col gap-4 max-w-4xl mx-auto mt-8 mb-20">
-	{#each results as item}
-		<Item {item} {type} />
-	{/each}
+<div class="mt-4 mb-20 p-4">
+	<div class="flex flex-col gap-4 max-w-4xl mx-auto ">
+		{#each results as item}
+			<Item {item} {type} />
+		{/each}
+	</div>
 </div>
