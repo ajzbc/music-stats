@@ -44,6 +44,12 @@
 			goto('/login');
 		}
 	}
+
+	$: if (browser && type && time_period) {
+		document.body.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	}
+
+	$: console.log(results);
 </script>
 
 <header class="w-full bg-black p-4">
@@ -66,7 +72,7 @@
 	</div>
 </header>
 
-<header class="w-full bg-black p-4 sticky top-0 shadow-2xl">
+<header class="w-full bg-black p-4 sticky top-0 shadow-2xl z-20">
 	<div class="max-w-4xl mx-auto flex flex-col justify-between sm:flex-row">
 		<Tabs tabs={types} bind:active={type} />
 		<Tabs tabs={time_periods} bind:active={time_period} />
@@ -75,8 +81,8 @@
 
 <div class="mt-4 mb-20 p-4">
 	<div class="flex flex-col gap-4 max-w-4xl mx-auto ">
-		{#each results as item}
-			<Item {item} {type} />
+		{#each results as item, i}
+			<Item {item} {type} {i} />
 		{/each}
 	</div>
 </div>

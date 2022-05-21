@@ -1,16 +1,20 @@
 <script>
 	export let item = {};
 	export let type;
+	export let i = 1;
 </script>
 
-<div class="flex gap-4 group {type == 'tracks' ? 'sm:items-center' : 'items-center'}">
-	<a href={item.link} target="_blank">
+<div class="flex gap-4 group {type == 'tracks' ? 'sm:items-center' : 'items-center'} relative">
+	<span
+		class="absolute left-0 translate-x-[-3rem] text-2xl font-bold font-mono select-none text-right w-8"
+		>{i + 1}</span
+	>
+	<a href={type == 'tracks' ? item?.album?.link : item.link} target="_blank">
 		<img
 			src={item.art}
-			alt="{item.album} Cover"
-			class="h-24 w-24 sm:h-32 sm:w-32 {type == 'tracks'
-				? 'rounded-lg'
-				: 'rounded-full'} group-hover:shadow-lg group-hover:shadow-spotify-green"
+			alt="{item.name} cover"
+			class="h-24 w-24 sm:h-32 sm:w-32 group-hover:shadow-lg group-hover:shadow-spotify-green
+            {type == 'tracks' ? 'rounded-lg' : 'rounded-full'} "
 		/>
 	</a>
 	<div class="flex-1">

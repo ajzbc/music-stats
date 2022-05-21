@@ -35,7 +35,10 @@ export const artistMap = (item) => {
 export const tracksMap = (item) => {
 	return {
 		name: item.name,
-		album: item.album.name,
+		album: {
+			name: item.album.name,
+			link: item.album.external_urls.spotify
+		},
 		artists: item.artists.map(artistMap),
 		art: item.album.images[1].url,
 		link: item.external_urls.spotify

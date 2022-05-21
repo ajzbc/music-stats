@@ -32,6 +32,6 @@
 
 <style lang="postcss">
 	.active {
-		@apply bg-spotify-green text-zinc-900;
+		@apply bg-spotify-green text-black;
 	}
 </style>
