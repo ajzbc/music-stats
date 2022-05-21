@@ -53,15 +53,15 @@
 				<h1 class="text-3xl font-medium">Spotify Stats</h1>
 			</a>
 
-			{#if me.id}
-				<div class="flex gap-2 items-center">
+			<div class="flex gap-2 items-center">
+				{#if me.id}
 					<img src={me.images[0].url} alt="profile" class="h-10 rounded-full" />
 					<p class="text-xl">{me.display_name ? me.display_name : me.id}</p>
-					<button on:click={logout} class="ml-2">
-						<LogoutIcon />
-					</button>
-				</div>
-			{/if}
+				{/if}
+				<button on:click={logout} class="ml-2">
+					<LogoutIcon />
+				</button>
+			</div>
 		</div>
 	</div>
 </header>
