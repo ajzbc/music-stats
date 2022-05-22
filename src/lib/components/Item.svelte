@@ -24,11 +24,11 @@
 			>
 			{#if item.artists}
 				{#each item.artists as artist, i}
+					{i == 0 ? '' : ', '}
 					<a
 						href={artist.link}
 						target="_blank"
-						class="text-lg sm:text-xl text-spotify-green hover:underline"
-						>{i == 0 ? '' : ', '} {artist.name}</a
+						class="text-lg sm:text-xl text-spotify-green hover:underline">{artist.name}</a
 					>
 				{/each}
 			{/if}
