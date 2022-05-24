@@ -32,12 +32,6 @@
 		// console.log(response)
 	);
 
-	let me = {};
-	onMount(async () => {
-		let response = await get('', $session.access_token);
-		me = response;
-	});
-
 	function logout() {
 		if (browser) {
 			document.cookie = 'access_token=';
@@ -54,20 +48,13 @@
 
 <header class="w-full bg-black p-4">
 	<div class="max-w-4xl mx-auto">
-		<div class="mb-3 flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
+		<div class="mb-3 flex gap-4 flex-row justify-between items-center">
 			<a href=".">
 				<h1 class="text-3xl font-medium">Spotify Stats</h1>
 			</a>
-
-			<div class="flex gap-2 items-center">
-				{#if me.id}
-					<img src={me.images[0].url} alt="profile" class="h-10 rounded-full" />
-					<p class="text-xl">{me.display_name ? me.display_name : me.id}</p>
-				{/if}
-				<button on:click={logout} class="ml-2">
-					<LogoutIcon />
-				</button>
-			</div>
+			<button on:click={logout} class="ml-2">
+				<LogoutIcon />
+			</button>
 		</div>
 	</div>
 </header>
