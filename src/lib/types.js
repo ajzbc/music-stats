@@ -27,7 +27,7 @@ export let time_periods = [
 export const artistMap = (item) => {
 	return {
 		name: item.name,
-		art: item.images ? item.images[1].url : null,
+		art: item.images && item.images.length > 0 ? item.images[1].url : '/default.png',
 		link: item.external_urls.spotify
 	};
 };
@@ -40,7 +40,8 @@ export const tracksMap = (item) => {
 			link: item.album.external_urls.spotify
 		},
 		artists: item.artists.map(artistMap),
-		art: item.album.images[1].url,
+		art:
+			item.album.images && item.album.images.length > 0 ? item.album.images[1].url : '/default.png',
 		link: item.external_urls.spotify
 	};
 };
