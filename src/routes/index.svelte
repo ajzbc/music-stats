@@ -1,7 +1,7 @@
 <script context="module">
 	export async function load({ session }) {
 		if (!session.access_token) {
-			return { redirect: '/login', status: 302 };
+			return { redirect: '/connect', status: 302 };
 		}
 		return {};
 	}
@@ -11,18 +11,16 @@
 	import { session } from '$app/stores';
 	import { browser } from '$app/env';
 	import { goto } from '$app/navigation';
-	import { onMount } from 'svelte';
-	import { get } from '../lib/api';
 
+	import Icon from '../lib/components/Icon.svelte';
 	import Tabs from '../lib/components/Tabs.svelte';
-	import { types, time_periods, tracksMap, artistMap } from '../lib/types';
+	import Item from '../lib/components/Item.svelte';
 
-	import LogoutIcon from '../lib/components/LogoutIcon.svelte';
+	import { get } from '../lib/api';
+	import { types, time_periods, tracksMap, artistMap } from '../lib/types';
 
 	let type = 'tracks';
 	let time_period = 'short_term';
-
-	import Item from '../lib/components/Item.svelte';
 
 	let results = [];
 
@@ -35,41 +33,46 @@
 	function logout() {
 		if (browser) {
 			document.cookie = 'access_token=';
-			goto('/login');
+			goto('/connect');
 		}
 	}
 
 	$: if (browser && type && time_period) {
 		document.body.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		results = [];
 	}
-
-	$: console.log(results);
 </script>
 
-<header class="w-full bg-black p-4">
-	<div class="max-w-4xl mx-auto">
-		<div class="mb-3 flex gap-4 flex-row justify-between items-center">
+<header>
+	<div class="mx-auto max-w-4xl">
+		<div class="mb-3 flex flex-row items-center justify-between gap-4">
 			<a href=".">
 				<h1 class="text-3xl font-medium">Spotify Stats</h1>
 			</a>
-			<button on:click={logout} class="ml-2">
-				<LogoutIcon />
+			<button on:click={logout} class="ml-2 text-spotify-green">
+				<Icon icon="logout" />
 			</button>
 		</div>
 	</div>
 </header>
 
-<header class="w-full bg-black p-4 sticky top-0 shadow-2xl z-20">
-	<div class="max-w-4xl mx-auto flex flex-col justify-between sm:flex-row">
+<header class="sticky top-0 z-20 shadow-2xl">
+	<div class="mx-auto flex max-w-4xl flex-col justify-between sm:flex-row">
 		<Tabs tabs={types} bind:active={type} />
 		<Tabs tabs={time_periods} bind:active={time_period} />
 	</div>
 </header>
 
-<div class="mt-4 mb-20 p-4">
-	<div class="flex flex-col gap-4 max-w-4xl mx-auto ">
+<div class="mt-4 mb-16 p-4">
+	<div class="mx-auto flex max-w-4xl flex-col gap-4 ">
 		{#each results as item, i}
-			<Item {item} {type} {i} />
+			<Item {item} {i} {type} />
 		{/each}
 	</div>
 </div>
+
+<style lang="postcss">
+	header {
+		@apply w-full bg-black p-4;
+	}
+</style>

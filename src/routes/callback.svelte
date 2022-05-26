@@ -23,6 +23,6 @@
 	});
 </script>
 
-<div class="w-full min-h-screen grid">
-	<p class="text-2xl m-auto">Redirecting...</p>
+<div class="mx-auto mt-auto">
+	<p class="m-auto text-2xl">Redirecting...</p>
 </div>
