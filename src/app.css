@@ -2,6 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+	@apply min-h-full;
+}
+
 body {
-	@apply w-full h-full bg-zinc-900 text-white;
+	@apply flex min-h-screen w-full flex-col bg-zinc-900 text-white;
+}
+
+@font-face {
+	font-family: SFRounded;
+	src: url(/fonts/SFRounded-Regular.woff2) format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: auto;
+}
+
+@font-face {
+	font-family: SFRounded;
+	src: url(/fonts/SFRounded-Medium.woff2) format('woff2');
+	font-weight: 500;
+	font-style: normal;
+	font-display: auto;
+}
+
+@font-face {
+	font-family: SFRounded;
+	src: url(/fonts/SFRounded-Semibold.woff2) format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: auto;
+}
+
+@font-face {
+	font-family: SFRounded;
+	src: url(/fonts/SFRounded-Bold.woff2) format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: auto;
+}
+
+@font-face {
+	font-family: SFRounded;
+	src: url(/fonts/SFRounded-Heavy.woff2) format('woff2');
+	font-weight: 800;
+	font-style: normal;
+	font-display: auto;
 }
