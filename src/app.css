@@ -10,6 +10,10 @@ body {
 	@apply flex min-h-screen w-full flex-col bg-black text-white;
 }
 
+header {
+	@apply w-full bg-black p-4;
+}
+
 @font-face {
 	font-family: SFRounded;
 	src: url(/fonts/SFRounded-Regular.woff2) format('woff2');

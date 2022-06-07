@@ -43,7 +43,7 @@
 	}
 </script>
 
-<header class="w-full bg-black p-4">
+<header>
 	<div class="mx-auto max-w-4xl">
 		<div class="mb-3 flex flex-row items-center justify-between gap-4">
 			<a href=".">
