@@ -63,7 +63,7 @@
 	</div>
 </header>
 
-<div class="mt-4 mb-16 bg-zinc-900 p-4">
+<div class="mt-4 mb-16 p-4">
 	<div class="mx-auto flex max-w-4xl flex-col gap-4">
 		{#each results as item, i}
 			<Item {item} {i} {type} />

@@ -7,7 +7,7 @@ html {
 }
 
 body {
-	@apply flex min-h-screen w-full flex-col bg-black text-white;
+	@apply flex min-h-screen w-full flex-col bg-zinc-900 text-white;
 }
 
 header {
