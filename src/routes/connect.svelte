@@ -13,12 +13,12 @@
 </script>
 
 <div class="mx-auto mt-auto text-center">
-	<h1 class="mb-6 text-5xl font-medium tracking-wide">Spotify Stats</h1>
+	<h1 class="mb-6 text-5xl font-medium tracking-wide">Music Stats</h1>
 	<a
 		href={url + params}
 		class="group inline-flex items-center justify-center gap-2 rounded-full border-4 border-spotify-green bg-spotify-green px-4 py-2 text-2xl font-bold text-zinc-900 transition ease-in-out hover:border-spotify-green hover:border-opacity-30 hover:bg-transparent hover:text-spotify-green"
 	>
 		<Icon icon="spotify" classes="h-10 w-10 group-hover:scale-105" />
-		<span>Connect</span>
+		<span>Spotify</span>
 	</a>
 </div>

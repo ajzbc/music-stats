@@ -47,7 +47,7 @@
 	<div class="mx-auto max-w-4xl">
 		<div class="mb-3 flex flex-row items-center justify-between gap-4">
 			<a href=".">
-				<h1 class="text-3xl font-medium">Spotify Stats</h1>
+				<h1 class="text-3xl font-medium">Music Stats</h1>
 			</a>
 			<button on:click={logout} class="ml-2 text-spotify-green">
 				<Icon icon="logout" />
@@ -68,5 +68,15 @@
 		{#each results as item, i}
 			<Item {item} {i} {type} />
 		{/each}
+		{#if results.length > 0}
+			<span class="mt-4"
+				>All data from <a
+					class="underline"
+					href="https://spotify.com"
+					target="_blank"
+					rel="noreferrer">Spotify</a
+				></span
+			>
+		{/if}
 	</div>
 </div>

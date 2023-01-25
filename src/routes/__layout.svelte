@@ -7,11 +7,11 @@
 <slot />
 
 <footer class="mt-auto flex items-center justify-center gap-4 p-4 pb-8 text-xl">
-	<a href="//ajzbc.com" target="_blank">
+	<a href="//andrewjazbec.com" target="_blank" rel="noreferrer">
 		<Icon icon="at" />
-		<span>ajzbc</span>
+		<span>andrewjazbec</span>
 	</a>
-	<a href="//github.com/ajzbc/spotify-stats" target="_blank">
+	<a href="//github.com/ajzbc/spotify-stats" target="_blank" rel="noreferrer">
 		<Icon icon="github" />
 		<span>source</span>
 	</a>
